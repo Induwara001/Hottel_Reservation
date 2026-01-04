@@ -19,7 +19,6 @@ public class HomeController {
 
         this.view.addRegisterListener(e -> openRegisterModule());
 
-
         this.view.addBookingListener(e -> openBookingModule());
 
         this.view.addGuestlListener(e-> openGuestModule());

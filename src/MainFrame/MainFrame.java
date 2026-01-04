@@ -19,7 +19,12 @@ public class MainFrame extends JFrame {
     private static MainFrame instance;
     private JPanel contentArea;
 
-    private JButton btnRegister, btnBooking, btnRooms, btnCheckOut, btnGuest, btnReports;
+    private JButton btnRegister;
+    private JButton btnBooking;
+    private JButton btnRooms;
+    private  JButton btnCheckOut;
+    private JButton btnGuest;
+    private JButton btnReports;
 
     private MainFrame() {
         setTitle("Hotel Plaza Workspace");
