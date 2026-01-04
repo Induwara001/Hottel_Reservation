@@ -17,13 +17,13 @@ public class RegisterView extends JPanel {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0; gbc.gridy = 0;
 
-        // Title
+
         JLabel title = new JLabel("Guest Registration");
         title.setFont(new Font("Arial", Font.BOLD, 24));
         gbc.gridwidth = 2;
         add(title, gbc);
 
-        // Fields
+
         gbc.gridwidth = 1; gbc.gridy = 1;
         add(new JLabel("Name:"), gbc);
         gbc.gridx = 1;
@@ -34,7 +34,7 @@ public class RegisterView extends JPanel {
         gbc.gridx = 1;
         add(mobileField, gbc);
 
-        // Button
+
         gbc.gridx = 1; gbc.gridy = 3;
         add(saveButton, gbc);
     }
