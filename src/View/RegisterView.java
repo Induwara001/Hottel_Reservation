@@ -39,9 +39,17 @@ public class RegisterView extends JPanel {
         add(saveButton, gbc);
     }
 
-    public String getNameInput() { return nameField.getText(); }
-    public String getMobileInput() { return mobileField.getText(); }
-    public void addSaveListener(ActionListener l) { saveButton.addActionListener(l); }
-    public void showMessage(String msg) { JOptionPane.showMessageDialog(this, msg); }
+    public String getNameInput() {
+        return nameField.getText();
+    }
+    public String getMobileInput() {
+        return mobileField.getText();
+    }
+    public void addSaveListener(ActionListener l) {
+        saveButton.addActionListener(l);
+    }
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
 }
 

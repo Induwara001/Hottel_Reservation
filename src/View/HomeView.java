@@ -11,7 +11,7 @@ public class HomeView extends JFrame {
     private JButton btnBooking;
     private JButton btnRooms;
     private JButton btnCheckOut;
-    private JButton btnCancel;
+    private JButton btnGuest;
     private JButton btnReports;
 
     public HomeView() {
@@ -54,14 +54,14 @@ public class HomeView extends JFrame {
         btnBooking = createMenuButton("Room Booking", "/booking.png");
         btnRooms = createMenuButton("Rooms", "/room.png");
         btnCheckOut = createMenuButton("Check Out", "/booking.png");
-        btnCancel = createMenuButton("Cancel Booking", "/cancle.png");
+        btnGuest = createMenuButton("Guest", "/guest.png");
         btnReports = createMenuButton("Reports", "/report.png");
 
         buttonGrid.add(btnRegister);
         buttonGrid.add(btnBooking);
         buttonGrid.add(btnRooms);
         buttonGrid.add(btnCheckOut);
-        buttonGrid.add(btnCancel);
+        buttonGrid.add(btnGuest);
         buttonGrid.add(btnReports);
 
         gbc.gridy = 1;
@@ -108,9 +108,9 @@ public class HomeView extends JFrame {
     public void addCheckOutListener(ActionListener listener){
         btnCheckOut.addActionListener(listener);
     }
-    public  void addCancelListener(ActionListener listener)
+    public  void addGuestlListener(ActionListener listener)
     {
-        btnCancel.addActionListener(listener);
+        btnGuest.addActionListener(listener);
     }
     public void addReportsListener(ActionListener listener)
     {
