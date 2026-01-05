@@ -1,5 +1,15 @@
 package MainFrame;
 
+import Controller.GuestController;
+import Controller.RegisterController;
+import Controller.ReportsController;
+import Model.GuestModel;
+import Model.RegisterModel;
+import Model.ReportsModel;
+import View.GuestView;
+import View.RegisterView;
+import View.ReportsView;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,8 +18,13 @@ public class MainFrame extends JFrame {
 
     private static MainFrame instance;
     private JPanel contentArea;
-    // Class variables for buttons
-    private JButton btnRegister, btnBooking, btnRooms, btnCancel, btnGuest, btnReports;
+
+    private JButton btnRegister;
+    private JButton btnBooking;
+    private JButton btnRooms;
+    private  JButton btnCheckOut;
+    private JButton btnGuest;
+    private JButton btnReports;
 
     private MainFrame() {
         setTitle("Hotel Plaza Workspace");
@@ -17,32 +32,31 @@ public class MainFrame extends JFrame {
         setSize(1200, 800);
         setLocationRelativeTo(null);
 
-        // --- 1. BACKGROUND IMAGE FIX ---
-        // Ensure "baxkground2.jpg" is in your 'src' folder. Case sensitive!
+
         BackgroundPanel bgPanel = new BackgroundPanel("/baxkground2.jpg");
         bgPanel.setLayout(new BorderLayout());
         setContentPane(bgPanel);
 
-        // --- 2. SIDEBAR (Extended to Top) ---
+
         JPanel sidebar = new JPanel();
         sidebar.setPreferredSize(new Dimension(240, 800));
-        // Navy Blue with transparency (200) so background shows through slightly
+
         sidebar.setBackground(new Color(20, 33, 61, 200));
         sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
 
-        // Add top spacing
+
         sidebar.add(Box.createRigidArea(new Dimension(0, 50)));
 
-        // Initialize Buttons
+
         btnRegister = createSidebarBtn("Register");
         btnBooking = createSidebarBtn("Room Booking");
         btnRooms = createSidebarBtn("Rooms");
-        btnCancel = createSidebarBtn("Cancel Booking");
+        btnCheckOut = createSidebarBtn("Checkout");
         btnGuest = createSidebarBtn("Guests");
         btnReports = createSidebarBtn("Reports");
 
-        // --- 3. ADD BUTTONS WITH BIGGER GAPS ---
-        // I changed the gap from 10 to 30 for better spacing
+
+
         sidebar.add(btnRegister);
         sidebar.add(Box.createRigidArea(new Dimension(0, 30)));
 
@@ -52,7 +66,7 @@ public class MainFrame extends JFrame {
         sidebar.add(btnRooms);
         sidebar.add(Box.createRigidArea(new Dimension(0, 30)));
 
-        sidebar.add(btnCancel);
+        sidebar.add(btnCheckOut);
         sidebar.add(Box.createRigidArea(new Dimension(0, 30)));
 
         sidebar.add(btnGuest);
@@ -67,7 +81,64 @@ public class MainFrame extends JFrame {
         contentArea = new JPanel(new BorderLayout());
         contentArea.setOpaque(false);
         add(contentArea, BorderLayout.CENTER);
+
+        this.addGuestsListener (e -> {
+
+            GuestModel model = new GuestModel();
+            GuestView view = new GuestView();
+            GuestController controller=new GuestController(view, model);
+
+
+            switchPage(view);
+        });
+
+        this.addRegisterListener (e -> {
+
+            RegisterModel model = new RegisterModel();
+            RegisterView view = new RegisterView();
+            RegisterController controller=new RegisterController(view, model);
+
+
+            switchPage(view);
+        });
+        /*this.addBookingListener (e -> {
+
+            BookingModel model = new BookingModel();
+            BookingView view = new BookingView();
+            BookingController controller=new BookingController(view, model);
+
+
+            switchPage(view);
+        });
+        this.addRoomsListener (e -> {
+
+            RoomsModel model = new RoomsModel();
+            RoomsView view = new RoomsView();
+            RoomsController controller=new RoomsController(view, model);
+
+
+            switchPage(view);
+        });
+        this.addCheckOutlListener (e -> {
+
+            CheckOutModel model = new  CheckOutModel();
+            CheckOutView view = new CheckOutView ();
+            CheckOutController controller=new CheckOutController(view, model);
+
+
+            switchPage(view);
+        }):*/
+        this.addReportsListener (e -> {
+
+            ReportsModel model = new ReportsModel();
+            ReportsView view = new ReportsView();
+            ReportsController controller=new ReportsController(view, model);
+
+
+            switchPage(view);
+        });
     }
+
 
     public static MainFrame getInstance() {
         if (instance == null) instance = new MainFrame();
@@ -128,9 +199,9 @@ public class MainFrame extends JFrame {
     {
         btnRooms.addActionListener(listener);
     }
-    public void addCancelListener(ActionListener listener)
+    public void addCheckOutlListener(ActionListener listener)
     {
-        btnCancel.addActionListener(listener);
+        btnCheckOut.addActionListener(listener);
     }
     public void addGuestsListener(ActionListener listener)
     {
@@ -140,6 +211,8 @@ public class MainFrame extends JFrame {
     {
         btnReports.addActionListener(listener);
     }
+
+
 
 }
 

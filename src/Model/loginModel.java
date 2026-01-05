@@ -9,7 +9,7 @@ import Database.DataBaseConnection;
 public class loginModel {
 
     public boolean checkCredentials(String username, String password) throws SQLException {
-        String sql = "SELECT * FROM login WHERE user_name = ? AND password = ?";
+        String sql = "SELECT * FROM user WHERE user_name = ? AND password = ?";
 
         Connection connection = DataBaseConnection.getDatabaseConnection();
 

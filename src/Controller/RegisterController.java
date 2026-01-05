@@ -11,7 +11,7 @@ public class RegisterController {
         this.view = view;
         this.model = model;
 
-        // Listen for the save button inside the panel
+
         this.view.addSaveListener(e -> saveGuest());
     }
 
